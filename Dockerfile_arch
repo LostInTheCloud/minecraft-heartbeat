@@ -1,0 +1,6 @@
+FROM archlinux:latest
+RUN pacman -Syu python python-pip --noconfirm && pip install requests mcstatus
+RUN pip install websocket
+RUN pip install websocket-client
+COPY --chown=lenni:lenni heartbeat.py /heartbeat.py
+CMD ["python3", "/heartbeat.py"]
